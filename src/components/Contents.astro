@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+
+const levels = await getCollection('levels');
+---
+
+<ul>
+  {
+    levels.map(level => (
+      <li>
+        {level.data.number}: {level.data.name}
+      </li>
+    ))
+  }
+</ul>
