@@ -1,14 +1,18 @@
 ---
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL;
 const levels = await getCollection('levels');
 ---
 
+<em>Note: This is a work-in-progress project. See <a href="http://github.com/doctor-g/game-design-concepts/">the project site</a>.</em>
+
+<h1>Contents</h1>
 <ul>
   {
     levels.map(level => (
       <li>
-        {level.data.number}: {level.data.name}
+        <a href={base + "/" + level.id}>Level {level.data.number}: {level.data.name}</a>
       </li>
     ))
   }

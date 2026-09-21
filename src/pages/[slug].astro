@@ -1,0 +1,16 @@
+---
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const levels = await getCollection('levels');
+  return levels.map(level => ({
+    params: { slug: level.id },
+    props: { level },
+  }));
+}
+
+const { level } = Astro.props;
+const { Content } = await render(level);
+---
+<h1>Level {level.data.number}: {level.data.name}</h1>
+<Content/>
