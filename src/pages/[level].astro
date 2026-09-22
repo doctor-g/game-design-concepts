@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Link } from 'accessible-astro-components';
 
 export async function getStaticPaths() {
   const levels = await getCollection('levels');
@@ -16,5 +17,5 @@ const { Content } = await render(level);
 <Content/>
 <hr/>
 <p>
-  This level of Game Design Concepts by Ian Schreiber was originally published at <a href={level.data.originalUrl}>{level.data.originalUrl}</a> and is presented here under the terms of <a href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>.
+  This level of Game Design Concepts by Ian Schreiber was originally published at <Link href={level.data.originalUrl}>{level.data.originalUrl}</Link> and is presented here under the terms of <Link href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</Link>.
 </p>
