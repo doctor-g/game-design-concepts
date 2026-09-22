@@ -8,6 +8,7 @@ const levels = defineCollection({
   schema: z.object({
     number: z.int(),
     name: z.string(),
+    originalUrl: z.url(),
   })
 });
 
