@@ -67,7 +67,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
       - name: Install Playwright Browsers (Chromium only)
-        run: npx playwright install chromium
+        run: npx playwright install --only-shell chromium 
       - name: Build with Astro and Audit Accessibility
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
