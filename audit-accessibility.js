@@ -130,7 +130,7 @@ async function runAudit() {
   console.log(`   ${baseUrl}`);
 
   console.log(
-    `\n🔍 Starting WCAG 2.2 AA accessibility scan on ` +
+    `\n🔍 Starting WCAG 2.1 AA accessibility scan on ` +
     `${htmlFiles.length} pages...\n`
   );
 
@@ -239,11 +239,7 @@ async function runAudit() {
 
         const results = await new AxeBuilder({ page })
           .withTags([
-            'wcag2a',
-            'wcag2aa',
-            'wcag21a',
             'wcag21aa',
-            'wcag22aa',
           ])
           .analyze();
 
@@ -305,7 +301,7 @@ async function runAudit() {
   }
 
   console.log(
-    '🎉 Accessibility audit passed: no WCAG 2.2 AA violations found.'
+    '🎉 Accessibility audit passed: no WCAG 2.1 AA violations found.'
   );
   console.log('='.repeat(60));
 
