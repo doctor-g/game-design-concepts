@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import fs from 'fs';
 import path from 'path';
 import { createServer } from 'vite';
+import astroConfig from './astro.config.mjs';
 
 // -----------------------------------------------------------------------------
 // Configuration
@@ -10,7 +11,7 @@ import { createServer } from 'vite';
 
 const DIST_DIR = path.join(process.cwd(), 'dist');
 const PORT = 4321;
-const BASE = '/game-design-concepts';
+const BASE = astroConfig.base ?? '';
 
 // -----------------------------------------------------------------------------
 // Find all generated HTML files
