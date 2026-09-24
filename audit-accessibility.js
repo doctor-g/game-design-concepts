@@ -4,96 +4,302 @@ import fs from 'fs';
 import path from 'path';
 import { createServer } from 'vite';
 
+// -----------------------------------------------------------------------------
 // Configuration
+// -----------------------------------------------------------------------------
+
 const DIST_DIR = path.join(process.cwd(), 'dist');
 const PORT = 4321;
+const BASE = '/game-design-concepts';
 
-// Helper to recursively find all HTML files in the dist folder
+// -----------------------------------------------------------------------------
+// Find all generated HTML files
+// -----------------------------------------------------------------------------
+
 function getHtmlFiles(dir, filesList = []) {
   const files = fs.readdirSync(dir);
+
   for (const file of files) {
     const name = path.join(dir, file);
+
     if (fs.statSync(name).isDirectory()) {
       getHtmlFiles(name, filesList);
     } else if (file.endsWith('.html')) {
       filesList.push(name);
     }
   }
+
   return filesList;
 }
 
-async function runAudit() {
-  // 1. Start a local preview server of your static dist folder
+// -----------------------------------------------------------------------------
+// Convert a dist filename to the URL used by the Astro site.
+//
+//   dist/index.html
+//       -> /game-design-concepts/
+//
+//   dist/about/index.html
+//       -> /game-design-concepts/about/
+//
+//   dist/foo.html
+//       -> /game-design-concepts/foo.html
+// -----------------------------------------------------------------------------
+
+function fileToUrlPath(file) {
+  const relativePath = path.relative(DIST_DIR, file);
+  let urlPath = relativePath.replace(/\\/g, '/');
+
+  if (urlPath === 'index.html') {
+    urlPath = '';
+  } else {
+    urlPath = urlPath.replace(/\/index\.html$/, '');
+  }
+
+  return `${BASE}/${urlPath}`.replace(/\/+$/, '/') || `${BASE}/`;
+}
+
+// -----------------------------------------------------------------------------
+// Start a local server for the built site.
+//
+// Astro's generated HTML expects assets to live under BASE:
+//
+//   /game-design-concepts/_astro/foo.css
+//
+// But the contents of dist/ are rooted at:
+//
+//   dist/_astro/foo.css
+//
+// The middleware removes BASE before Vite looks for the file.
+// -----------------------------------------------------------------------------
+
+async function startServer() {
   const server = await createServer({
     root: DIST_DIR,
-    server: { port: PORT }
+    server: {
+      port: PORT,
+    },
   });
+
+  server.middlewares.use((req, res, next) => {
+    if (req.url?.startsWith(BASE)) {
+      req.url = req.url.slice(BASE.length) || '/';
+    }
+
+    next();
+  });
+
   await server.listen();
 
-  // 2. Discover all built HTML pages
-  const htmlFiles = getHtmlFiles(DIST_DIR);
-  if (htmlFiles.length === 0) {
-    console.error('❌ No HTML files found in dist/. Run "astro build" first.');
+  return server;
+}
+
+// -----------------------------------------------------------------------------
+// Main audit
+// -----------------------------------------------------------------------------
+
+async function runAudit() {
+  if (!fs.existsSync(DIST_DIR)) {
+    console.error(
+      '❌ dist/ does not exist. Run "astro build" before running the audit.'
+    );
     process.exit(1);
   }
 
-  // 3. Launch Playwright headless browser
+  const htmlFiles = getHtmlFiles(DIST_DIR);
+
+  if (htmlFiles.length === 0) {
+    console.error(
+      '❌ No HTML files found in dist/. Run "astro build" before running the audit.'
+    );
+    process.exit(1);
+  }
+
+  const server = await startServer();
+
+  console.log(`🚀 Serving ${DIST_DIR}`);
+  console.log(`   http://localhost:${PORT}${BASE}/`);
+
+  console.log(
+    `\n🔍 Starting WCAG 2.2 AA accessibility scan on ` +
+    `${htmlFiles.length} pages...\n`
+  );
+
   const browser = await chromium.launch();
   const context = await browser.newContext();
-  const page = await context.newPage();
+
   let totalViolations = 0;
+  let totalErrors = 0;
 
-  console.log(`\n🔍 Starting WCAG 2.2 AA Accessibility Scan on ${htmlFiles.length} pages...\n`);
+  try {
+    for (const file of htmlFiles) {
+      const relativePath = path.relative(DIST_DIR, file);
+      const urlPath = fileToUrlPath(file);
+      const targetUrl = `http://localhost:${PORT}${urlPath}`;
 
-  for (const file of htmlFiles) {
-    // Convert system path to local server URL path
-    const relativePath = path.relative(DIST_DIR, file);
-    const urlPath = relativePath.replace(/index\.html\$/, '').replace(/\\/g, '/');
-    const targetUrl = `http://localhost:${PORT}/${urlPath}`;
+      console.log(`Testing: ${targetUrl}`);
 
-    console.log(`Testing: ${targetUrl}`);
+      const page = await context.newPage();
 
-    try {
-      await page.goto(targetUrl, { waitUntil: 'networkidle' });
+      // -----------------------------------------------------------------------
+      // Diagnostics
+      //
+      // These catch missing CSS, JavaScript, images, fonts, etc.
+      // -----------------------------------------------------------------------
 
-      // Configure Axe to enforce WCAG 2.2 AA rules
-      const results = await new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
-        .analyze();
+      const failedRequests = [];
+      const httpErrors = [];
 
-      if (results.violations.length > 0) {
-        console.error(`❌ [FAIL] ${relativePath} has ${results.violations.length} accessibility violation(s):`);
-
-        results.violations.forEach((violation) => {
-          totalViolations++;
-          console.error(`  - [${violation.id}]: ${violation.description}`);
-          console.error(`    Impact: ${violation.impact} | Help: ${violation.helpUrl}`);
-          violation.nodes.forEach((node) => {
-            console.error(`    Target HTML Element: ${node.html}`);
-          });
+      page.on('requestfailed', request => {
+        failedRequests.push({
+          url: request.url(),
+          error: request.failure()?.errorText,
         });
-        console.error('\n' + '='.repeat(50) + '\n');
-      } else {
-        console.log(`✅ [PASS] ${relativePath}\n`);
+      });
+
+      page.on('response', response => {
+        if (response.status() >= 400) {
+          httpErrors.push({
+            status: response.status(),
+            url: response.url(),
+          });
+        }
+      });
+
+      try {
+        // This is a completely static site, so networkidle is sufficient.
+        await page.goto(targetUrl, {
+          waitUntil: 'networkidle',
+        });
+
+        // ---------------------------------------------------------------------
+        // Check for failed network requests.
+        // ---------------------------------------------------------------------
+
+        if (failedRequests.length > 0 || httpErrors.length > 0) {
+          console.error(`⚠️  Network problems on ${relativePath}`);
+
+          for (const request of failedRequests) {
+            console.error(
+              `   REQUEST FAILED: ${request.url()} ` +
+              `(${request.error ?? 'unknown error'})`
+            );
+          }
+
+          for (const response of httpErrors) {
+            console.error(
+              `   HTTP ${response.status}: ${response.url}`
+            );
+          }
+
+          totalErrors++;
+        }
+
+        // ---------------------------------------------------------------------
+        // Verify that stylesheets actually loaded.
+        // ---------------------------------------------------------------------
+
+        const stylesheets = await page.locator(
+          'link[rel="stylesheet"]'
+        ).evaluateAll(links =>
+          links.map(link => ({
+            href: link.href,
+            sheet: Boolean(link.sheet),
+          }))
+        );
+
+        const unloadedStylesheets = stylesheets.filter(
+          stylesheet => !stylesheet.sheet
+        );
+
+        if (unloadedStylesheets.length > 0) {
+          console.error(
+            `⚠️  ${unloadedStylesheets.length} stylesheet(s) failed to load:`
+          );
+
+          for (const stylesheet of unloadedStylesheets) {
+            console.error(`   ${stylesheet.href}`);
+          }
+
+          totalErrors++;
+        }
+
+        // ---------------------------------------------------------------------
+        // Run axe.
+        // ---------------------------------------------------------------------
+
+        const results = await new AxeBuilder({ page })
+          .withTags([
+            'wcag2a',
+            'wcag2aa',
+            'wcag21a',
+            'wcag21aa',
+            'wcag22aa',
+          ])
+          .analyze();
+
+        if (results.violations.length > 0) {
+          console.error(
+            `❌ [FAIL] ${relativePath} has ` +
+            `${results.violations.length} accessibility violation(s):`
+          );
+
+          for (const violation of results.violations) {
+            totalViolations++;
+
+            console.error(
+              `  - [${violation.id}]: ${violation.description}`
+            );
+            console.error(
+              `    Impact: ${violation.impact} | Help: ${violation.helpUrl}`
+            );
+
+            for (const node of violation.nodes) {
+              console.error(`    Target: ${node.html}`);
+            }
+          }
+
+          console.error('\n' + '='.repeat(60) + '\n');
+        } else {
+          console.log(`✅ [PASS] ${relativePath}\n`);
+        }
+
+      } catch (err) {
+        console.error(
+          `💥 Failed to test ${targetUrl}:`,
+          err instanceof Error ? err.message : err
+        );
+
+        totalErrors++;
+      } finally {
+        await page.close();
       }
-    } catch (err) {
-      console.error(`💥 Failed to test ${targetUrl}:`, err.message);
-      totalViolations++;
     }
+  } finally {
+    await browser.close();
+    await server.close();
   }
 
-  // Cleanup
-  await browser.close();
-  await server.close();
+  // ---------------------------------------------------------------------------
+  // Final result
+  // ---------------------------------------------------------------------------
 
-  // 4. Force build failure if rules are broken
-  if (totalViolations > 0) {
-    console.error(`❌ Build failed: Found ${totalViolations} total accessibility violations.`);
+  console.log('\n' + '='.repeat(60));
+
+  if (totalViolations > 0 || totalErrors > 0) {
+    console.error('❌ Accessibility audit failed:');
+    console.error(`   Accessibility violations: ${totalViolations}`);
+    console.error(`   Test/server errors:       ${totalErrors}`);
+    console.error('='.repeat(60));
+
     process.exit(1);
-  } else {
-    console.log('🎉 Excellent work! All pages passed WCAG 2.2 AA requirements.');
-    process.exit(0);
   }
+
+  console.log(
+    '🎉 Accessibility audit passed: no WCAG 2.2 AA violations found.'
+  );
+  console.log('='.repeat(60));
+
+  process.exit(0);
 }
 
 runAudit();
