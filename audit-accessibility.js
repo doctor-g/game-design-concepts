@@ -10,7 +10,6 @@ import astroConfig from './astro.config.mjs';
 // -----------------------------------------------------------------------------
 
 const DIST_DIR = path.join(process.cwd(), 'dist');
-const PORT = 4321;
 const BASE = astroConfig.base ?? '';
 
 // -----------------------------------------------------------------------------
@@ -77,11 +76,11 @@ async function startServer() {
   const server = await createServer({
     root: DIST_DIR,
     server: {
-      port: PORT,
+      port: 0
     },
   });
 
-  server.middlewares.use((req, res, next) => {
+  server.middlewares.use((req, _res, next) => {
     if (req.url?.startsWith(BASE)) {
       req.url = req.url.slice(BASE.length) || '/';
     }
@@ -91,7 +90,17 @@ async function startServer() {
 
   await server.listen();
 
-  return server;
+  const baseUrl = server.resolvedUrls?.local?.[0];
+
+  if (!baseUrl) {
+    throw new Error('Could not determine the local server URL.');
+  }
+
+  return {
+    server,
+    /* Strip off the final slash to prevent them doubling up with paths. */
+    baseUrl: baseUrl.replace(/\/$/, ''),
+  };
 }
 
 // -----------------------------------------------------------------------------
@@ -115,10 +124,10 @@ async function runAudit() {
     process.exit(1);
   }
 
-  const server = await startServer();
+  const { server, baseUrl }  = await startServer();
 
   console.log(`🚀 Serving ${DIST_DIR}`);
-  console.log(`   http://localhost:${PORT}${BASE}/`);
+  console.log(`   ${baseUrl}`);
 
   console.log(
     `\n🔍 Starting WCAG 2.2 AA accessibility scan on ` +
@@ -135,7 +144,7 @@ async function runAudit() {
     for (const file of htmlFiles) {
       const relativePath = path.relative(DIST_DIR, file);
       const urlPath = fileToUrlPath(file);
-      const targetUrl = `http://localhost:${PORT}${urlPath}`;
+      const targetUrl = `${baseUrl}${urlPath}`;
 
       console.log(`Testing: ${targetUrl}`);
 
