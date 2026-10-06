@@ -22,3 +22,8 @@ All Astro commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+
+## Contributing
+
+Be sure to run the accessibility audit in [audit-accessibility.js]() before pushing your contributions. This script is automatically run as part of `npm run build`.
