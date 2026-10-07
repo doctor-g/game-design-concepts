@@ -54,3 +54,6 @@ How is a game designed? There are many methods.
 
 Historically, the first design methodology was known as the __waterfall__ method: first you design the entire game on paper, then you implement it (using programming in a video game, or creating the board and pieces for a non-digital game), then you test it to make sure the rules work properly, add some graphical polish to make it look nice, and then you ship it.
 
+![Waterfall model: a staircase of five boxes, Start, Design, Implement, Post-production, End, with each arrow pointing only down to the next step and none pointing back.](../assets/level_02/waterfall.jpg)
+
+Waterfall is so named because, like water in a waterfall, you can only move in one direction. If you’re busy making the final art for the game and it occurs to you that one of the rules needs to change, too bad — the methodology does not include a way to go back to the design step once you are done.
