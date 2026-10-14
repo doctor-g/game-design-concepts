@@ -131,3 +131,159 @@ Paper prototypes do have some limitations that you should be aware of:
 - Paper prototypes are not very well suited for testing the user interface (UI) of a video game. Computer UIs are dynamic, but paper is static. You can get an idea of the visual layout with some paper sketches, but to know how it will actually be used on a computer, you’d need a digital prototype.
 
 As you can see, the advantages of paper prototyping are very general and the limitations are specific, so the ability to prototype in paper is an important skill for any game designer to develop, whether they work in video games or board games or anything in between.
+
+## The Non-Digital Designer’s Prototyping Kit
+
+What follows is a list of materials that I have personally found useful when prototyping. Other designers may have their favorite materials:
+
+- Paper, of several varieties: blank, lined, and graph. These are useful for general note-taking, and for the fast construction of makeshift game boards and other surfaces.
+
+- Colored pens and pencils. Obviously you need something to write with. Colors give an easy way to differentiate between game elements, or to annotate your game components.
+
+- Index cards (3″×5″). These make it easy to make cards. They shuffle reasonably well. You can cut them in halves or thirds for different card sizes. You can also just write ideas down on these and tape them on the wall, making it easy to arrange your thoughts visually. These are versatile and cheap.
+
+- Scissors and tape. For breaking things apart and sticking them together, respectively. These are to game design what WD-40 and duct tape are to handymen, for the same reasons.
+
+- Paper clips and/or binder clips. This lets you store related materials in one place. For example, if you create several “decks” of index cards, this lets you hold them together so they don’t get mixed up with each other (or worse, mixed up with cards from other prototypes).
+
+- Glass beads (sometimes called “Pente stones”) in different colors. These make great markers, counters, and playing pieces.
+
+- Dice, of varying types (4, 6, 8, 10, 12 and 20 sided). Several of each type, in different colors. These provide independent random variables (as opposed to the dependent randomness of card draws). For more information on the uses of dice and cards, see Chapter 5 in the _Challenges_ text. Note that dice can also make decent playing pieces that can simultaneously “store” a single number on them — for example, a six-sided die could represent a warrior with up to 6 hit points.
+
+- A small bag of low-value coins (pennies in the United States, and I admit ignorance to how other countries handle coin-based currency). Coins make good markers, they can be flipped for a random variable, they have two sides so they can represent either of two states (such as which of two players currently controls them), and they can be stacked more easily than dice or glass beads.
+
+- Colored sticky-dots (small round adhesive labels). You can put them on stones, dice or pennies to mark them, differentiate them, or customize them. You can write on the dots to provide additional information if needed.
+
+- A paper notebook that is kept with your prototypes and used exclusively for taking notes in playtests. This is not something you want to accidentally lose track of!
+
+Where do you find these things? It depends where you live. Most, you can get at an office supply store (Staples, Office Depot and Office Max are the big stores near where I live; you may have others), except for dice, glass beads, and coins. The coins, you can get at a bank (in the United States, you can get a hundred pennies for only one dollar — a bargain by any standard for quality game components 🙂). Dice are generally found in hobby-game stores or comic-book shops, or purchased online. Glass beads can be found in a variety of places. Hobby-game stores have them. Pet stores that sell fish equipment may sell them as aquarium stones. Art/craft hobby stores may sell them as glass beads for jewelry and craft projects. They also come as components with many games (notably _Pente_), if you can find a game with glass beads for cheap.
+
+Craft and hobby stores, both the retail chains and online (Michael’s is the big chain store in my area), can offer great inspiration for game designers. I’ve found large quantities of unpainted and colored wooden cubes (great as resource markers and also as custom dice) and wooden discs (they feel better and are larger than pennies). Once, I found a set of flat painted wooden cut-outs, maybe an inch square, of bunnies and another set of carrots; I don’t know what I’ll ultimately do with them, but there is a game that will be made with them some day. [Craftparts](https://www.craftparts.com/) has wooden people-shaped pawns and square tiles in various sizes. These kinds of quality components may not be immediately suitable for quick-and-dirty paper prototypes, but they can certainly come into use as your project becomes more developed.
+
+## Your First Paper Prototype
+
+Here are the rules for the classic children’s game _Battleship_:
+
+- Players: 2
+
+- Objective: sink all five ships in your opponent’s fleet before they do the same to you.
+
+- Setup: Each player has a 10×10 grid of squares, with the rows labeled with numbers 1 through 10 and the columns labeled with letters A through J. Each player has five ships: one ship that is 2 squares long, two ships that are each 3 squares long, one ship that is 4 squares long and one ship that is 5 squares long. Each player secretly places their ships on their own grid, in such a way that each ship is oriented sideways or up-and-down (not diagonally) and that ships do not overlap. A player is chosen to go first.
+
+- Progression of play: On a player’s turn, they call out a single square by its coordinates (such as “B-5” or “H-10”). If the named square is not occupied by any of the opponent’s ships, the opponent says “Miss”. If the square is occupied, the opponent says “Hit”. Additionally, if the square was a “hit” and the ship that was hit has had all of its sections hit, the ship is considered “sunk” and the opponent must tell you which ship was sunk. No matter what the result, after the action is resolved, play passes to the opponent.
+
+- Resolution: When one player sinks all five ships of the opponent’s fleet, that player is the winner.
+
+Normally, this game is available in toy stores. It comes on a plastic board with plastic pegs. Some fancy electronic versions require batteries and have sound. But I bet if you think about it, you could prototype this game in paper in less than five minutes. How would you do this?
+
+If you couldn’t guess, all you’d have to do is draw two 10×10 grids on a sheet of paper for each of the two players (one to keep track of your fleet, and one to track the results of your shots against the opponent). This is all you need to play, and it gives pretty much the same experience as the “real” version!
+
+Now, try this thought experiment: critically analyze _Battleship_ as a game. What are the weaknesses of its design? How would you modify the rules of the game to make it better? If you are taking this course in a group, discuss this with your colleagues. Then, consider: how would you modify your paper prototype to test out your new rules in a playtest to see if they work? Usually, this is trivial to do. Here are some examples from the times when I’ve taught this course in a classroom:
+
+- Allow players to move their own ships if they haven’t yet been hit. (To modify the prototype: just allow players to erase and re-draw their ships.)
+
+- Allow players to use a “sonar sweep” instead of firing a shot on their turn: they name any 3×3 square area on the board, and the opponent says the number of squares in that area (from 0 to 9) that are occupied by ships. (No modifications necessary, just play with this as a new rule.)
+
+- Let players take another turn immediately if they score a “hit”. (Again, no modifications necessary, just play with this new rule.)
+
+- Use differently-shaped ships: instead of lines, have a T-shaped or square-shaped ship, like _Tetris_ pieces. (To modify the prototype, just draw the ships in different shapes.)
+
+- Give each player one area-effect bomb that hits everything in an entire 3×3 square area. They can use it on their turn instead of taking a normal shot, but only once per game per player. (Again, just play with the modified rules.)
+
+- Shorten the game by playing on a 6×6 grid instead of 10×10. (Just draw the grid differently on paper.)
+
+As you can see, modifying the rules to a paper prototype is very fast and easy, and you could go through many iterations in a short period of time. Don’t be afraid that your idea will be “bad”! Of course it will be bad. Even experienced designers create “bad” games in their first iteration. But you will never turn it into a good game unless you start somewhere. A paper prototype is very often the ideal starting point.
+
+## Prototyping Realtime Systems
+
+For a turn-based game like _Battleship_, a non-digital prototype is easy enough to put together. What if you wanted to prototype a First-Person Shooter video game like _Halo_? Is there any possible way to do that on paper, when most of the game is running around and shooting things in real time? The answer is yes, absolutely. Here are some hints:
+
+- One “turn” of a board game is equivalent to some amount of time (say, 3 seconds) of real-time play.
+
+- For “twitch” mechanics like dodging and accuracy that require accurate timing, either a player succeeds or fails at these based on how difficult they are and how skilled the player is. This can be modeled with a random die roll. Note that even though the video game’s system is not random at all, it may as well be random from the _opponent’s_ perspective: if I shoot at you and you either do or do not successfully dodge, I have no control over that.
+
+- Many real-time games take place on an open 3D map that is not subdivided into “spaces”. This does not prevent you from making a game board that has spaces anyway.
+
+For example, consider these rules:
+
+- Players: 2 to 6, free-for-all
+
+- Objective: shoot your opponents
+
+- Setup: Players start at designated starting locations on the board. The board is subdivided into hexagons (“hexes”). Each player is facing in one of the six directions leading away from their space towards another hex. Each player takes a set of the following cards: Move, Turn, Move/Turn, Fire.
+
+- Progression of Play: Each turn, all players select one of their cards and play face-down. Cards are revealed simultaneously. First, any players who selected Move get to move up to 2 spaces away in any direction(s), but they cannot turn and must continue to face the same direction they started the turn facing. Next, any players who selected Move/Turn may move up to 1 space and also change their facing by a single hex (60 degrees) in either the clockwise or counterclockwise direction. Next, any players who selected Turn can change their facing to any direction they want. Finally, any player who chose Fire immediately hits and kills any opponent(s) that they can see. Any player who is killed is eliminated from the game. After the turn, players collect the card they played. They may play this card or another one on the next turn.
+
+- Resolution: When one player is left standing, that player wins. If two or more players shoot and kill each other on the same turn simultaneously, the game is a draw.
+
+Then you just draw up a quick hex map, maybe fill in a few hexes to represent obstacles that players cannot walk or shoot through, and play. Try it out!
+
+And if you do try it out, you’ll immediately notice the game needs some iteration. For example, I didn’t define what a player “can see” so there is no way from the rules above to tell if a shot hits or not. You will have to define this more explicitly on your own (maybe it means in a straight line, or maybe within a certain range, or maybe something else). You may also notice that the game is not very deep; there are no respawns, power-ups, ammo, health packs, special weapons, or anything else. The game does not immediately support common variants like Capture-the-Flag or King-of-the-Hill. All of these things could be added, however, in just a few minutes.
+
+What would this kind of prototype be useful for? You could use it to playtest a proposed level layout, before implementing it in the game’s level editing tools. If you add enemy monsters and play as a cooperative team, and you add limited ammunition and health as new mechanics, you could balance the number of monsters versus the amount of ammo and health on a level to get a pretty decent first stab at a level that would provide a desired level of challenge. If you add different weapon types with varying range, damage and accuracy, you could get a pretty good idea of which weapons would be the most powerful on a given map. You would still need to revisit these things if you turn it into a digital game, because things do not transition 100% perfectly from one medium to another… but you will have a better starting point, and a better understanding of the game’s mechanics and how they are likely to interact.
+
+And maybe even if the digital game fails, you’ll still at least have a fun little tabletop game to play with your friends.
+
+I hope this example serves to show you that most video games can have at least some of their elements prototyped in paper. And naturally, games that are meant to be released in non-digital form can be prototyped that way as well. Even some systems from tabletop RPGs and LARPs can be prototyped in this way, in their early stages.
+
+## A Short Note about Grids
+
+There are many ways to make a game board, but here are three common ways to get you started:
+
+- Subdivide into a grid of squares. Square grids are easy to navigate and are familiar to most players, so they will not intimidate casual players as much as some other methods. For grids that include lots of obstacles and movement challenges, grids are ideal because it is easy to block off a path: a single impassable square forces you to go quite a bit out of your way to get to the other side. The drawback of squares is that you inevitably run into a problem with diagonal movement: does it count as one space or two in order to move diagonally? One space feels too fast; two spaces feels too slow. (The actual value is the square root of 2, or about 1.4 spaces… but if you’re dealing with whole-number values this obviously does not work.)
+
+- Subdivide into a grid of hexes. Hexes have some nice mathematical properties to them, in that something that is 3 hexes away is always that many hexes, no matter which of several paths you take; this gets around the “how fast to move along a diagonal” problem of square grids. On the down side, hex boards make it much easier to move around obstacles, so movement is a lot less constrained. This may be desirable or not, depending on the nature of your game. Also, hexes are quite “geeky” and are likely to put off players who are not that experienced with this style of play.
+
+- Open area, no board. Use a tape measure instead, and move your pieces a certain number of inches (or centimetres, or what have you) per turn. This gives the most fluid and precise movement, although it has many of the same disadvantages as hex maps, and is also vulnerable to someone accidentally bumping the table and sending pieces slightly off of where they were.
+
+## Adding Features versus Keeping It Simple
+
+As mentioned earlier, our First-Person Shooter prototype is just begging for extra features, such as health and ammo. Why not start with all of these extra systems already in place, as opposed to starting with just the simple core system? There are a few reasons to start with a simple, core rule set and then add on one rule at a time, instead of trying to design the entire game in one big effort:
+
+- If the basic, core rules don’t work, then adding extra rules on top of it will generally not make it work. Get the basics working first, _before_ you start adding complexity.
+
+- In fact, if you build extra rules on an unstable foundation, the real underlying problems in your design could be obscured! Something might seem wrong, but if there are a lot of systems and resources and game objects it can be hard to tell if you’re experiencing a problem with the core mechanics, or the balance of a particular resource, or the design of the map, or something else.
+
+Early on in a design process, it’s generally better to keep things as simple as possible. For every rule or mechanic or object or resource that you want to include, ask yourself: is this really necessary right now? At this point, let your laziness override your creativity. It is far easier to add something to your design than to take it away, so add the minimum possible to have a working, playable game.
+
+If you have trouble with this, try writing down a list of all of the ideas you have that you want to include in the game, and then cross off as many as you can. Ask if whatever items are left on your list would make a complete, playable game. If so, try to cross off more, until you absolutely can’t anymore.
+
+It may also help to run your idea by another designer who is not personally and emotionally attached to your pet idea. Invite them to be merciless in deciding which of your rules can be trashed. For the purposes of this course, you can offer a trade with any colleagues in your area: you look at my prototype, I’ll look at yours!
+
+## Moving Forward
+
+Once you have the core gameplay, and it works, then you can add new features. The temptation at this point is to add everything you originally thought of. Resist this temptation. Instead, add one new feature, and playtest again until the new feature works, or you have decided that it doesn’t work and it needs to be abandoned.
+
+Why not add everything at once? Because every new thing you add may have some problems with it. If you only add one new rule and a critical game system becomes broken in playtesting, you know exactly where the problem is, because you only changed one thing. If you add ten new rules and something breaks, it’s harder to isolate which rule (or combination of rules) caused the problem. Incidentally, this part is similar to programming: if you write code in small chunks and then unit test, it’s easier to find bugs than if you write ten thousand lines of code between tests.
+
+Yes, this is tedious. You have to playtest, then change one rule, then playtest again, then change another rule, and keep doing this dozens (or even hundreds) of times. The first few playtests are fun, but you will quickly become sick of the whole business. This is part of the process of design. Sometimes, game design is hard work that is not particularly fun. This is something you need to accept if you have aspirations to become a professional designer. Just remember that the purpose of this is to make a game that is fun, and if it’s not there yet, that should be your incentive to change something and playtest again until you reach your goal.
+
+In making an actual game, the next step after the physical prototype (once you’re happy with it) is to __document__ it. These documents do not have to be 500-page Game Design Bibles. They can be small sets of rules and design and playtest notes that you’ve accumulated as you went through the iterative process, but formatted into something that is readable and understandable by someone who has not seen the project before. This documentation will be valuable reference material for later, if you ever forget what you were doing. Sometimes you have to put an idea to the side for a few months and return to it later, and I guarantee you will forget all of those details that used to seem second-nature to you when you were fiddling with the rules early on.
+
+## Readings
+
+There are some additional readings for this level:
+
+- _Challenges for Game Designers_, Chapter 4. This details the process of prototyping a video game in paper. Even if your interest is in board game design, note that many commercially-successful board games originated in the video game world (there are, for example, board-game versions of _DOOM_, _Warcraft 3_, _Civilization_, _Age of Empires_, and _World of Warcraft_, among many others). Some of them are even worth playing.
+- [Don’t Be a Vidiot](http://www.costik.com/vidiot.html), by Greg Costikyan. If you want to be a video game designer, this article provides both an incentive to study board games, and also a starting point for the kinds of games that are out there beyond _Monopoly_ and _RISK_.
+
+## Homeplay
+
+Do Challenge 4-1 in the text. It does not have to be an Activision/Blizzard game. It cannot be a game that already has a commercially-available board game adaptation. (Check [BoardGameGeek](https://boardgamegeek.com/) if in doubt.)
+
+![Easier (green circle):](../assets/level_04/green-circle.gif) Design a board-game adaptation of any video game. Write out your complete rule set. Include a list of all components necessary to play. This game should be playable without the player having to design anything!
+
+![More Difficult (blue square):](../assets/level_04/blue-square.gif) As above, and once you’ve finished your design, make a playable prototype of the core systems in under an hour. Give a complete list of materials used.
+
+![Most Difficult (black diamond):](../assets/level_04/black-diamond.gif) As above, and the video game in question must be an adaptation of an Atari 2600 title. And make it more fun than the original!
+
+## Mini-Challenge
+
+Here’s another quick thing you can try if you get through all of that. Propose a rule change to _Battleship_ that will make it better than the original, and find a way to express it in less than 135 characters.
+
+## Additional Resources
+
+While not required reading, I can recommend these two articles for their relevance to this level’s topic:
+
+- Veteran designer Raph Koster provides his own [list of game bits](https://www.raphkoster.com/2005/11/01/how-to-prototype-a-game-in-under-7-days/) that work well for prototypes.
+- An [article on paper prototyping](https://www.gamedeveloper.com/business/the-paper-chase-saving-money-via-paper-prototyping), written for an audience of video game developers.
