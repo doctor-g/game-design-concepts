@@ -71,11 +71,11 @@ What is the object of the game? What are the players trying to do? This is often
 - Chase/race/escape. Generally, anything where you are running towards or away from something; the playground game _Tag_ and the video game _Super Mario Bros._ are examples.
 - Spatial alignment. A number of games involve positioning of elements as an objective, including the non-digital games _Tic-Tac-Toe_ and _Pente_ and the video game _Tetris_.
 - Build. The opposite of “destroy” — your goal is to advance your character(s) or build your resources to a certain point. _The Sims_ has strong elements of this; the board game _Settlers of Catan_ is an example also.
-- Negation of another goal. Some games end when one player performs an act that is forbiden by the rules, and that player loses. Examples are the physical dexterity games _Twister_ and _Jenga_.
+- Negation of another goal. Some games end when one player performs an act that is forbidden by the rules, and that player loses. Examples are the physical dexterity games _Twister_ and _Jenga_.
 
 ## Rules (mechanics)
 
-As mentioned last week, there are three categories of rules: setup (things you do once at the beginning of the game), progression of play (what happens during the game), and resolution (what conditions cause the game to end, and how is an outcome determined based on the game state).
+As mentioned in level 2, there are three categories of rules: setup (things you do once at the beginning of the game), progression of play (what happens during the game), and resolution (what conditions cause the game to end, and how is an outcome determined based on the game state).
 
 Some rules are automatic: they are triggered at a certain point in the game without player choices or interaction (“Draw a card at the start of your turn” or “The bonus timer decreases by 100 points every second”). Other rules define the choices or actions that the players can take in the game, and the effects of those actions on the game state.
 

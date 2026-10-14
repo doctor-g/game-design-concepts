@@ -127,7 +127,7 @@ Remember this as we move forward in this course. When we talk about iteration an
 
 Some classes assign “homework problems.” I’m not sure what is less fun: the concept of work at home, or having problems. So, I call everything a “homeplay” because I want these to be fun and interesting.
 
-Before this Thursday, read the following:
+Read the following:
 
 - _Challenges for Game Designers_, Chapter 1 (Basics). This is just a short introduction to the text.
 - _I Have No Words and I Must Design_, by Greg Costikyan. To me (and I’m sure others will disagree), this essay is the turning point when game design started to become its own field of study. Since it all started here, for me at least, I think it only fitting to introduce it at the start of this course. (There is a newer version here[PDF] if you are interested, but I prefer the original for its historical importance.)

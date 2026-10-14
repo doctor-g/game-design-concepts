@@ -16,7 +16,7 @@ Unfortunately, I have seen the term “design” used (particularly in some coll
 
 ## Multiple Types of Game Design
 
-As mentioned in _Challenges_, there are many tasks associated with game design: system design, level design, content design, user interface design, world building, and story writing. You could fill several 10-week courses with any one of these, so this summer course will not be a full treatment of the entire range of game design. We will touch lightly on UI, story writing and content when relevant, but the majority of this course focuses on __system design__ (also sometimes called “systems design” or “core systems design”).
+As mentioned in _Challenges_, there are many tasks associated with game design: system design, level design, content design, user interface design, world building, and story writing. You could fill several courses with any one of these, so this course will not be a full treatment of the entire range of game design. We will touch lightly on UI, story writing and content when relevant, but the majority of this course focuses on __system design__ (also sometimes called “systems design” or “core systems design”).
 
 System design is about defining the basic rules of the game. What are the pieces? What can you control? What actions can you take on your turn (if there are “turns” at all)? What happens when you take each action, and how does it affect the game state? In general, system design is the creation of three things:
 
@@ -24,7 +24,7 @@ System design is about defining the basic rules of the game. What are the pieces
 - Rules for progression of play. Once the game begins, what can the players do, and what happens when they do things?
 - Rules for resolution. What, if anything, causes the game to end? If the game has an outcome (such as winning or losing), how is that outcome determined?
 
-If you look back at _Three-to-Fifteen_ from Monday, you’ll notice those very simple rules contain all of these parts. The creation of those rules is system design, and that is what we will be spending most of our time with over this summer.
+If you look back at _Three-to-Fifteen_ from Level 1, you’ll notice those very simple rules contain all of these parts. The creation of those rules is system design, and that is what we will be spending most of our time with in this course.
 
 ## What is a Game Designer?
 
@@ -93,13 +93,13 @@ That said, most game designers have aspirations of making games that are new, cr
 
 ## Why This Course is Non-Digital…
 
-Some of you would rather make board games anyway, so you don’t care how video games are made. But for those of you who would love to make video games, you may have wondered why we will be spending so much time making board and card games in this course. Now you know: it is because iteration is faster and cheaper with cardboard. Remember from Monday: you can make a board game in 15 minutes. Coding that game will take significantly longer. When possible, prototype on paper first, because a 15-minute paper prototype and an hour-long playtest session can save you months of programming work.
+Some of you would rather make board games anyway, so you don’t care how video games are made. But for those of you who would love to make video games, you may have wondered why we will be spending so much time making board and card games in this course. Now you know: it is because iteration is faster and cheaper with cardboard. Remember from Level 1: you can make a board game in 15 minutes. Coding that game will take significantly longer. When possible, prototype on paper first, because a 15-minute paper prototype and an hour-long playtest session can save you months of programming work.
 
 Later in this course, we will discuss in detail methods of paper prototyping, both for traditional board games and also for various types of video games.
 
-There is another reason why we will concentrate primarily on non-digital games this summer, particularly board and card games. This is a course in __systems design__, that is, creating the rules of the game. In board games, the rules are laid bare. There may be some physical components, sure, but the play experience is almost entirely determined by the rules and the player interactions. If the rules are not compelling, the game will not be fun, so working in this medium makes a clear connection between the rules and the player experience.
+There is another reason why we will concentrate primarily on non-digital games in this course, particularly board and card games. This is a course in __systems design__, that is, creating the rules of the game. In board games, the rules are laid bare. There may be some physical components, sure, but the play experience is almost entirely determined by the rules and the player interactions. If the rules are not compelling, the game will not be fun, so working in this medium makes a clear connection between the rules and the player experience.
 
-This is not as true in video games. Many video games have impressive technology (such as realistic physics engines) and graphics and sound, which can obscure the fact that the gameplay is stale. Video games also take much longer to make (due to programming and art/audio asset creation), making them an impractical choice for a ten-week course.
+This is not as true in video games. Many video games have impressive technology (such as realistic physics engines) and graphics and sound, which can obscure the fact that the gameplay is stale. Video games also take much longer to make (due to programming and art/audio asset creation), making them an impractical choice for a course like this one.
 
 The connection between rules and player experience is also muddied in tabletop role-playing games. I realize that many of you have expressed an interest primarily in RPG design, so this may seem strange to you. However, keep in mind that an RPG is essentially a collaborative story-telling exercise (with a rules system in place to set boundaries for what can and can’t happen). As such, a wonderful system can be ruined by players who have poor story-telling and improv skills, and a weak system can be salvaged by skillful players. As such, we will stay away from these game genres, at least in the early stages.
 
@@ -108,7 +108,7 @@ Take that 15-minute game you made last time, and play it, if you haven’t alrea
 
 Then, after playing once, make at least one change. Maybe you’ll change the rules for movement, or add a new way for players to interact. Maybe you’ll change some of the spaces on the board. Whatever you do, for whatever reason, make a change and then play again. Note the differences. Has the change made the game better, or worse? Has this one change made you think of additional changes you could make? If the game got worse, would you just change the rule back, or would you change it again in a different way?
 
-We will be looking at the playtest process in detail later in this course. For now, I just want everyone to get over that fear: “what if I play my game and it sucks?” With the game you designed on Monday, the odds are very high that your game does suck (seriously, did you expect to make the next Gears of War in 15 minutes?). This does not make you a “bad designer” by any means — but it should make it clear that the more time you put into a game and the more iterations you make, the better it gets.
+We will be looking at the playtest process in detail later in this course. For now, I just want everyone to get over that fear: “what if I play my game and it sucks?” With the game you designed in Level 1, the odds are very high that your game does suck (seriously, did you expect to make the next _Gears of War_ in 15 minutes?). This does not make you a “bad designer” by any means — but it should make it clear that the more time you put into a game and the more iterations you make, the better it gets.
 
 ## Lessons Learned
 The one big takeaway from today is that the more you iterate on a game, the better it becomes. Great designers do not design great games. They usually design really bad games, and then they iterate on them until the games _become_ great.
@@ -120,8 +120,8 @@ This has two corollaries:
 - Given equal amounts of time, a shorter, simpler game will give a better experience than a longer, complicated game. A game that takes ten hours to play to completion will give you fewer iterations than a game that can be played in five minutes. When we start on the Design Project later in this course, keep this in mind.
 
 ## Homeplay
-Before next Monday, read the following. I will be referencing these in Monday’s content when we talk about the formal elements of games:
+Read the following. I will be referencing these in Level 3 when we talk about the formal elements of games:
 
-- _Challenges for Game Designers_, Chapter 2 (Atoms). This will act as a bridge between last Monday when we talked about a critical vocabulary, and next Monday when we will start breaking down the concept of a “game” into its component parts.
+- _Challenges for Game Designers_, Chapter 2 (Atoms). This will act as a bridge between Level 1 when we talked about a critical vocabulary, and Level 3 when we will start breaking down the concept of a “game” into its component parts.
 
 - _[Formal Abstract Design Tools](https://www.gamedeveloper.com/design/formal-abstract-design-tools)_, by Doug Church. This article builds on Costikyan’s _I Have No Words_, offering some additional tools by which we can analyze and design games. While he does use many examples from video games, think about how the core concepts in the article can apply to other kinds of games as well.

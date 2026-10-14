@@ -12,7 +12,7 @@ Today, we examine the first step of the iterative process: initial design.
 
 ## A Note on Constraints
 
-An interesting thing happened for this Monday’s challenge: more people attempted the Black Diamond (highest difficulty) than those who did all of the other difficulties combined. By contrast, when signing up, only about a tenth of the participants identified themselves as experienced game designers. What is going on here?
+An interesting thing happened for the Level 3 challenge: more people attempted the Black Diamond (highest difficulty) than those who did all of the other difficulties combined. By contrast, when signing up, only about a tenth of the participants identified themselves as experienced game designers. What is going on here?
 
 Part of it may be pride. Even though people will admit a total lack of experience to me in private email, broadcasting it on forums is another thing entirely. Part of it may be the thrill of the challenge. People want to know just how far they can push themselves.
 
