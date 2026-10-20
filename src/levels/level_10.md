@@ -20,7 +20,7 @@ Read the following:
 
 ## Kinds of Stories
 
-We can roughly classify different stories by their overall structure. The structure is determined by what kinds of choices are available to the player, how open or constrained those choices are, and what effect those choices have on both the ongoing story and the final ending. Each structure has its advantages and disadvantages, which we will discuss below.
+We can roughly classify different stories by their overall structure. The structure is determined by what kinds of choices are available to the player, how open or constrained those choices are, and what effect those choices have on both the ongoing story and the final ending. Each structure has its advantages and disadvantages, which we will discuss below. Several of these names come from game designer and author Chris Bateman, who has written about the different ways games structure their stories.
 
 ### Linear
 
