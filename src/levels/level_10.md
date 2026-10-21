@@ -10,17 +10,19 @@ However, not all games are like this. As we’ve seen, player decisions are the 
 
 For some game designers, a true “interactive story” is something of the Holy Grail of games. In reality, we often fall short of giving the player the feeling that they are actually the starring role in a compelling story of their own creation. How have we told interactive stories in the past, and how can we make better ones in the future? It’s largely an unsolved problem, but we can at least cover the basics of what is already known, and that is our focus in this level.
 
-Note that most board games do not have strong embedded narrative, so this entire discussion is _mostly_ relevant to video game narrative, as well as tabletop RPGs. However, some [modern](https://boardgamegeek.com/boardgame/39339) [board](https://boardgamegeek.com/boardgame/10547) [games](https://boardgamegeek.com/boardgame/15987) are in fact attempting to combine the tabletop board game experience with that of the RPG, including story elements that the players must interact with as part of the gameplay.
+Note that most board games do not have strong embedded narrative, so this entire discussion is _mostly_ relevant to video game narrative, as well as tabletop RPGs. However, some modern board games (such as [_Android_](https://boardgamegeek.com/boardgame/39339), [_Betrayal at House on the Hill_](https://boardgamegeek.com/boardgame/10547), and [_Arkham Horror_](https://boardgamegeek.com/boardgame/15987)) are in fact attempting to combine the tabletop board game experience with that of the RPG, including story elements that the players must interact with as part of the gameplay.
 
 ## Readings
 
 Read the following:
 
+- [_Diversity in Game Narrative_](https://www.ihobo.com/p/diversity-in-game-narrative), by Chris Bateman. This is a brief overview of the different kinds of story structures encountered in games.
+
 - _Challenges for Game Designers_, Chapter 13 (Designing a Game to Tell a Story). This short chapter covers this level’s topic and can also serve as a review of some topics from Level 9.
 
 ## Kinds of Stories
 
-We can roughly classify different stories by their overall structure. The structure is determined by what kinds of choices are available to the player, how open or constrained those choices are, and what effect those choices have on both the ongoing story and the final ending. Each structure has its advantages and disadvantages, which we will discuss below. Several of these names come from game designer and author Chris Bateman, who has written about the different ways games structure their stories.
+We can roughly classify different stories by their overall structure. The structure is determined by what kinds of choices are available to the player, how open or constrained those choices are, and what effect those choices have on both the ongoing story and the final ending. Each structure has its advantages and disadvantages, which we will discuss below.
 
 ### Linear
 
@@ -68,7 +70,7 @@ The advantage of a threaded narrative is that it is extremely expressive. You ca
 
 Also, the story may have multiple beginnings and middles and endings, but the player has access to all of them and can advance any combination of them in any order, so we have finally solved the problem of forced replays. The player can see everything there is to see with a single play-through, if they are thorough enough.
 
-As you might guess, there is still a problem here. First, since some events may affect others, testing out all possible paths through the story can get even more complicated than with a branching narrative. (For programming geeks, a branching story with two choices per choice point is O(N^2), while a threaded narrative is potentially O(N!). Yes, _factorial._)
+As you might guess, there is still a problem here. First, since some events may affect others, testing out all possible paths through the story can get even more complicated than with a branching narrative. (For programming geeks, a branching story with two choices per choice point is O(2^N), while a threaded narrative is potentially O(N!). Yes, _factorial._)
 
 Writing a threaded narrative is hard, because events can happen in any order, leading to the potential for the player to do things in an order that doesn’t make sense (for example, perhaps they are given a quest to assassinate a rival leader in the middle of a war, _before_ the war actually breaks out, or _after_ the war is concluded). The story writer must be careful to allow access to certain story events only when it would make sense to do so. Keeping track of all the variables that determine when a story event is or isn’t active can get very complicated very quickly.
 
