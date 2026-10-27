@@ -148,8 +148,8 @@ I’ll give you a few games to play. Go ahead and play them first, if you can. T
 - [_Passage_](https://hcsoftware.sourceforge.net/passage/) and/or [_Gravitation_](https://hcsoftware.sourceforge.net/gravitation/), by Jason Rohrer. (5 and 8 minute play times, respectively.)
 - [_The Marriage_](https://rodvik.com/rodgames/marriage.html), by Rod Humble. (Playable in just a few minutes.)
 - [_Stars Over Half-Moon Bay_](https://www.rodvik.com/rodgames/SOHMB.html), by Rod Humble. (Playable in just a few minutes.)
-- [_Samorost_](https://amanita-design.net/samorost-1/), by Amanita. (Takes awhile to play through completely.)
-- [_Cloud_](https://www.jenovachen.com/flowingames/cloud.htm), by Jenova Chen. (Takes awhile to play to completion, but it shows you the major mechanics in the first level, which only takes a few minutes.)
+- [_Samorost_](https://amanita-design.net/samorost-1/), by Amanita. (Takes a while to play through completely.)
+- [_Cloud_](https://www.jenovachen.com/flowingames/cloud.htm), by Jenova Chen. (Takes a while to play to completion, but it shows you the major mechanics in the first level, which only takes a few minutes.)
 
 ## Lessons Learned
 
