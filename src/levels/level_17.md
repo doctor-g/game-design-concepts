@@ -38,6 +38,8 @@ In board games, you often see this tradeoff with how information is presented. C
 
 Sometimes you can include both. Modern software applications include hotkeys and menu items, and some even have a “beginner” mode that hides advanced functionality to keep the menus simple, making the software much easier to learn. Card games like _Magic: the Gathering_ include keywords, but then explain those keywords in parentheses for players who do not know what the keyword means.
 
+![Three Magic: the Gathering cards showing keywords followed by reminder text in parentheses. Konda, Lord of Eiganjo has Vigilance, explained as “Attacking doesn’t cause this creature to tap,” and Bushido 5. Infused Arrows has Sunburst, and Tar Shards has a keyword explained the same way.](../assets/level_17/magic-cards.jpg)
+
 Look at all the mechanics in your game, and what players must do in order to follow them. Are there any cases where your wording could be clearer for first-time players? Are there situations where experienced players of your game feel like they are doing excessive book-keeping or note-taking, or performing multiple automatic steps, where it would be possible to streamline the experience?
 
 ## The Two Models of Usability
