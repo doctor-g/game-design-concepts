@@ -18,6 +18,8 @@ Since none of us are perfect or will ever be, there is _always_ a way for us to 
 
 No, the journey of a game designer does not end. But it does get more interesting, because you can put higher-level concepts together much easier. The kind of thing that used to take you a month eventually takes you a week, and the rest of that time can be spent doing even more for your games.
 
+The course blog for Game Balance Concepts is at [gamebalanceconcepts.wordpress.com](https://gamebalanceconcepts.wordpress.com/).
+
 ## Final Words
 
 I would like to thank you for your interest, your participation, and your time. I wish you well, in games and in life. Keep playing, keep designing, and keep learning.
