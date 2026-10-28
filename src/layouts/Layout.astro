@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { Button, Link } from "accessible-astro-components";
+import { Button } from "accessible-astro-components";
 
 interface Props {
   title: string;
@@ -8,8 +8,12 @@ interface Props {
 
 const { title } = Astro.props;
 
-const levels = await getCollection("levels");
-const base = import.meta.env.BASE_URL;
+const levels = (await getCollection("levels")).sort(
+  (a, b) => a.data.number - b.data.number,
+);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const current = Astro.url.pathname.replace(/\/$/, "");
+const isHome = current === base;
 ---
 
 <!doctype html>
@@ -17,17 +21,16 @@ const base = import.meta.env.BASE_URL;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href={base + "favicon.svg"}
-    />
-    <link rel="icon" href={base + "/favicon.ico"} />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="icon" href={`${base}/favicon.ico`} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <header class="site-header">
+      <a class="site-title" href={`${base}/`}>Game Design Concepts</a>
       <Button
         class="menu-button"
         aria-expanded="false"
@@ -40,25 +43,42 @@ const base = import.meta.env.BASE_URL;
 
     <div class="page-layout">
       <aside id="site-navigation" class="sidebar">
-        <nav aria-label="Main navigation">
-          <ul>
-            <li><a href={base}>Home</a></li>
-						{
-							levels.map(level =>
-								<li><Link href={base + "/" + level.id}>Level {level.data.number}</Link></li>
-							)
-						}
-          </ul>
+        <a class="brand" href={`${base}/`} aria-current={isHome ? "page" : undefined}>
+          <img class="brand-icon" src={`${base}/favicon.svg`} alt="" width="40" height="40" />
+          <span>Game Design Concepts</span>
+        </a>
+        <nav aria-label="Levels">
+          <ol class="track">
+            {
+              levels.map((level) => {
+                const href = `${base}/${level.id}`;
+                const here = current === href;
+                return (
+                  <li>
+                    <a href={href} aria-current={here ? "page" : undefined}>
+                      <span class="space" aria-hidden="true">{level.data.number}</span>
+                      <span class="label">
+                        <span class="visually-hidden">Level {level.data.number}: </span>
+                        {level.data.name}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ol>
         </nav>
       </aside>
 
-      <main id="main-content">
-        <h1>{title}</h1>
-        <slot />
+      <main id="main-content" tabindex="-1">
+        <article class="page">
+          <h1>{title}</h1>
+          <slot />
+        </article>
       </main>
     </div>
 
-		<script>
+    <script>
       const button = document.querySelector<HTMLButtonElement>(".menu-button");
       const navigation = document.querySelector<HTMLElement>(".sidebar");
 
@@ -72,63 +92,257 @@ const base = import.meta.env.BASE_URL;
   </body>
 </html>
 
-<style>
-  /* Desktop */
+<style is:global>
+  :root {
+    --paper: #f6f2ea;
+    --surface: #ffffff;
+    --ink: #1f2328;
+    --muted: #59606a;
+    --line: #e2dccf;
+    --accent: #ba0c2f;
+    --accent-ink: #8f0a25;
+    --accent-soft: #fbe9ec;
+    --focus: #1f5fbf;
+    --serif: Charter, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
 
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--sans);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+    margin: 0 0 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.45rem;
+    margin: 2.5rem 0 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+  }
+
+  h1 + h2,
+  h1 + * > h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    margin: 1.75rem 0 0.5rem;
+  }
+
+  a {
+    color: var(--accent-ink);
+    text-underline-offset: 0.15em;
+    overflow-wrap: anywhere;
+  }
+
+  a:hover {
+    color: var(--accent);
+    text-decoration-thickness: 2px;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    margin: 1.5rem 0;
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    border-left: 4px solid var(--accent);
+    color: var(--muted);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 10;
+    padding: 0.5rem 1rem;
+    background: var(--surface);
+    font-family: var(--sans);
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+</style>
+
+<style>
   .site-header {
     display: none;
   }
 
   .page-layout {
     display: grid;
-    grid-template-columns: 16rem 1fr;
+    grid-template-columns: 18rem 1fr;
     min-height: 100vh;
   }
 
   .sidebar {
-    border-right: 1px solid #ccc;
-    padding: 2rem 1rem;
+    border-right: 1px solid var(--line);
+    padding: 1.5rem 1rem 2rem;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+
+  .brand-icon {
+    flex: none;
   }
 
   .sidebar nav {
     position: sticky;
-    top: 2rem;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
   }
 
-  .sidebar ul {
+  .track {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  .sidebar li + li {
-    margin-top: 0.5rem;
+  .track a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 0.5rem;
+    color: var(--ink);
+    text-decoration: none;
   }
 
-  .sidebar a {
-    display: block;
-    padding: 0.5rem;
+  .track a:hover {
+    background: var(--accent-soft);
+  }
+
+  .track a:hover .label {
+    text-decoration: underline;
+  }
+
+  .space {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--accent-ink);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  .track a[aria-current="page"] {
+    background: var(--accent-soft);
+    font-weight: 700;
+  }
+
+  .track a[aria-current="page"] .space {
+    background: var(--accent);
+    color: #fff;
   }
 
   main {
-    max-width: 60rem;
-    padding: 2rem 3rem;
+    padding: 2.5rem 2rem 4rem;
   }
 
+  main:focus {
+    outline: none;
+  }
 
-  /* Mobile */
+  .page {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 2.5rem 3rem 3rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+  }
 
   @media (max-width: 50rem) {
+    :global(html) {
+      scroll-padding-top: 4rem;
+    }
+
     .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      height: 3.5rem;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 1rem;
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid #ccc;
+      padding: 0 1rem;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      font-family: var(--sans);
     }
 
     .site-title {
-      font-weight: bold;
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
     }
 
     .menu-button {
@@ -138,6 +352,7 @@ const base = import.meta.env.BASE_URL;
       border: 0;
       background: none;
       font: inherit;
+      color: var(--ink);
       cursor: pointer;
     }
 
@@ -148,20 +363,37 @@ const base = import.meta.env.BASE_URL;
     .sidebar {
       display: none;
       border-right: 0;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid var(--line);
       padding: 1rem;
     }
 
     .sidebar.is-open {
       display: block;
+      position: fixed;
+      top: 3.5rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 4;
+      overflow-y: auto;
+      background: var(--paper);
+    }
+
+    .brand {
+      display: none;
     }
 
     .sidebar nav {
       position: static;
+      max-height: none;
     }
 
     main {
-      padding: 1.5rem;
+      padding: 1rem;
+    }
+
+    .page {
+      padding: 1.5rem 1.25rem;
     }
   }
 </style>
