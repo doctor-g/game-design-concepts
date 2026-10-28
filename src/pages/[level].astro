@@ -15,7 +15,9 @@ const { level } = Astro.props;
 const { Content } = await render(level);
 ---
 <Layout title=`Level ${level.data.number}: ${level.data.name}`>
+<div class="level-content">
 <Content/>
+</div>
 <footer>
 <hr/>
 <p>
@@ -23,3 +25,14 @@ const { Content } = await render(level);
 </p>
 </footer>
 </Layout>
+
+<style>
+  .level-content :global(:is(img[src*="green-circle"], img[src*="blue-square"], img[src*="black-diamond"])) {
+    float: left;
+    margin: 0.2rem 0.75rem 0.5rem 0;
+  }
+
+  .level-content :global(p:has(> :is(img[src*="green-circle"], img[src*="blue-square"], img[src*="black-diamond"]))) {
+    display: flow-root;
+  }
+</style>
