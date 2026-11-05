@@ -30,7 +30,6 @@ const isHome = current === base;
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="site-header">
-      <a class="site-title" href={`${base}/`}>Game Design Concepts</a>
       <Button
         class="menu-button"
         aria-expanded="false"
@@ -39,6 +38,7 @@ const isHome = current === base;
         <span class="menu-icon" aria-hidden="true">☰</span>
         <span>Menu</span>
       </Button>
+      <a class="site-title" href={`${base}/`}>Game Design Concepts</a>
     </header>
 
     <div class="page-layout">
@@ -331,8 +331,7 @@ const isHome = current === base;
       height: 3.5rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      gap: 1.25rem;
       padding: 0 1rem;
       border-bottom: 1px solid var(--line);
       background: var(--surface);
