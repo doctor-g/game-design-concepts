@@ -15,9 +15,13 @@ Those of you who have read a little into the _Challenges_ text may think this is
 Also, it’s important to make distinctions between different games. Consider the game of *Three to Fifteen*. Most of you have probably never heard of or played this game. It has a very simple set of rules:
 
 - Players: 2
+
 - Objective: to collect a set of exactly three numbers that add up to 15.
-- Setup: start by writing the numbers 1 through 9 on a sheet of paper. Choose a player - to go first.
+
+- Setup: start by writing the numbers 1 through 9 on a sheet of paper. Choose a player to go first.
+
 - Progression of Play: on your turn, choose a number that has not been chosen by either player. You now control that number. Cross it off the list of numbers, and write the number on your side of the paper to show that it is now yours.
+
 - Resolution: if either player collects a set of exactly three numbers that add up to exactly 15, the game ends, and that player wins. If all nine numbers are collected and neither player has won, the game is a draw.
 
 Go ahead and play this game, either against yourself or against another player. Do you recognize it now?
@@ -38,7 +42,7 @@ When I say “vocabulary” what I mean is, a set of words that allows us to tal
 
 Vocabulary might not be as fascinating as that game you want to design with robot laser ninjas, but it is important, because it gives us the means to talk about games. Otherwise we’ll be stuck gesturing and grunting, and it becomes very hard to learn anything if we can’t communicate.
 
-One of the most common ways to talk about games is to describe them in terms of other games. “It’s like _Grand Theft Auto_ meets _The Sims_ meets _World of Warcraft_.” But this has two limitations. First, if I haven’t played World of Warcraft, then I won’t know what you mean; it requires us to both have played the same games. Second, and more importantly, it does not cover the case of a game that is very different. How would you describe _Katamari Damacy_ in terms of other games?
+One of the most common ways to talk about games is to describe them in terms of other games. “It’s like _Grand Theft Auto_ meets _The Sims_ meets _World of Warcraft_.” But this has two limitations. First, if I haven’t played World of Warcraft, then I won’t know what you mean; it requires us to both have played the same games. Second, and more importantly, it does not cover the case of a game that is very different. How would you describe [_Katamari Damacy_](https://en.wikipedia.org/wiki/Katamari_Damacy) in terms of other games?
 
 Another option, often chosen by those who write textbooks on game design, is to invent terminology as needed and then use it consistently within the text. I could do this, and we could at least communicate with each other about fundamental game design concepts. The problem here is what happens after this course is over; the jargon from this course would become useless when you were talking to anyone else. I cannot force or mandate that the game industry adopt my terminology.
 
@@ -50,7 +54,7 @@ There are many kinds of play: tossing a ball around, playing make-believe, and o
 
 Games are made of many parts, including the rules, story, physical components, and so on. Play is just one aspect of games. Therefore, you can also think of play as one part of games.
 
-How can two things both be a _subset_ the other? It seems like a paradox, and it’s something you are welcome to think about on your own. For our purposes, it doesn’t matter — the point here is that _games_ and _play_ are concepts that are related.
+How can two things both be a _subset_ of the other? It seems like a paradox, and it’s something you are welcome to think about on your own. For our purposes, it doesn’t matter — the point here is that _games_ and _play_ are concepts that are related.
 
 ## So, what is a game, anyway?
 
@@ -59,27 +63,45 @@ You might have noticed I never answered the earlier question of what a game is. 
 Here are some definitions from various sources:
 
 - A game has “ends and means”: an objective, an outcome, and a set of rules to get there. (David Parlett)
+
 - A game is an activity involving player decisions, seeking objectives within a “limiting context” [i.e. rules]. (Clark C. Abt)
-- A game has six properties: it is “free” (playing is optional and not obligatory), “separate” (fixed in space and time, in advance), has an uncertain outcome, is “unproductive” (in the sense of creating neither goods nor wealth — note that wagering transferswealth between players but does not create it), is governed by rules, and is “make believe” (accompanied by an awareness that the game is not Real Life, but is some kind of shared separate “reality”). (Roger Callois)
+
+- A game has six properties: it is “free” (playing is optional and not obligatory), “separate” (fixed in space and time, in advance), has an uncertain outcome, is “unproductive” (in the sense of creating neither goods nor wealth — note that wagering transfers wealth between players but does not create it), is governed by rules, and is “make believe” (accompanied by an awareness that the game is not Real Life, but is some kind of shared separate “reality”). (Roger Caillois)
+
 - A game is a “voluntary effort to overcome unnecessary obstacles.” This is a favorite among my classroom students. It sounds a bit different, but includes a lot of concepts of former definitions: it is voluntary, it has goals and rules. The bit about “unnecessary obstacles” implies an inefficiency caused by the rules on purpose — for example, if the object of Tic Tac Toe is to get three symbols across, down or diagonally, the easiest way to do that is to simply write three symbols in a row on your first turn while keeping the paper away from your opponent. But you don’t do that, because the rules get in the way… and it is from those rules that the play emerges. (Bernard Suits)
+
 - Games have four properties. They are a “closed, formal system” (this is a fancy way of saying that they have rules; “formal” in this case means that it can be defined, not that it involves wearing a suit and tie); they involve interaction; they involve conflict; and they offer safety… at least compared to what they represent (for example, American Football is certainly not what one would call perfectly safe — injuries are common — but as a game it is an abstract representation of warfare, and it is certainly more safe than being a soldier in the middle of combat). (Chris Crawford)
+
 - Games are a “form of art in which the participants, termed Players, make decisions in order to manage resources through game tokens in the pursuit of a goal.” This definition includes a number of concepts not seen in earlier definitions: games are art, they involve decisions and resource management, and they have “tokens” (objects within the game). There is also the familiar concept of goals. (Greg Costikyan)
-- Games are a “system in which players engage in an artificial conflict, defined by rules, that results in a quantifiable outcome” (“quantifiable” here just means, for example, that there is a concept of “winning” and “losing”). This definition is from the book Rules of Playby Katie Salen and Eric Zimmerman. That book also lists the other definitions given above, and I thank the authors for putting them all in one place for easy reference.
+
+- Games are a “system in which players engage in an artificial conflict, defined by rules, that results in a quantifiable outcome” (“quantifiable” here just means, for example, that there is a concept of “winning” and “losing”). This definition is from the book _Rules of Play_ by Katie Salen and Eric Zimmerman. That book also lists the other definitions given above, and I thank the authors for putting them all in one place for easy reference.
 
 By examining these definitions, we now have a starting point for discussing games. Some of the elements mentioned that seem to be common to many (if not all) games include:
 
 - Games are an *activity*.
+
 - Games have *rules*.
+
 - Games have *conflict*.
+
 - Games have *goals*.
+
 - Games involve *decision making*.
+
 - Games are *artificial*, they are *safe*, and they are *outside ordinary life*. This is sometimes referred to as the players stepping into the “Magic Circle” or sharing a “lusory attitude”.
+
 - Games involve *no material gain* on the part of the players.
+
 - Games are *voluntary*. If you are held at gunpoint and forced into an activity that would normally be considered a game, some would say that it is no longer a game for you. (Something to think about: if you accept this, then an activity that is voluntary for some players and compulsory for others may or may not be a game… depending on whose point of view you are looking at.)
+
 - Games have an *uncertain outcome*.
+
 - Games are a *representation* or *simulation* of something real, but they are themselves *make believe*.
+
 - Games are *inefficient*. The rules impose obstacles that prevent the player from reaching their goal through the most efficient means.
+
 - Games have *systems*. Usually, it is a *closed* system, meaning that resources and information do not flow between the game and the outside world.
+
 - Games are a form of *art*.
 
 ## Weaknesses of Definitions
@@ -89,8 +111,11 @@ Which of the earlier definitions is correct?
 None of them are perfect. If you try to come up with your own definition, it will likely be imperfect as well. Here are a few common edge cases that commonly cause problems with definitions:
 
 - *Puzzles*, such as crossword puzzles, Sudoku, Rubik’s Cube, or logic puzzles. Are these games? It depends on the definition. Salen & Zimmerman say they are a subset of games where there is a set of correct answers. Costikyan says they are not games, although they may be contained within a game.
+
 - *Role-playing games*, such as _Dungeons & Dragons_. They have the word “game” right in the title, yet they are often not considered games (for example, because they often have no final outcome or resolution, no winning or losing).
+
 - *Choose-your-own-adventure books*. These are not generally thought of as games; you say you are “reading” a book, not “playing” it. And yet, it fits most of the criteria for most definitions of a game. To make things even more confusing, if you take one of these books, add a tear-out “character sheet” with some numeric stats, include “skill checks” on some pages where you roll a die against a stat, and call it an “adventure module” instead of a “choose-your-own-adventure book,” we would now call it a game!
+
 - *Stories*. Are games stories? On the one hand, most stories are linear, while games tend to be more dynamic. On the other hand, most games have some kind of story or narrative in them; we even have professional story writers that work on multi-million-dollar video game projects. And even beyond that, a player can tell a story about their game experience (“let me tell you about this Chess game I played last night, it was awesome”). For now, keep in mind that the concepts of *story* and *game* are related in many ways, and we’ll explore this more thoroughly later in the course.
 
 ## Let’s Make a Game
@@ -130,8 +155,10 @@ Some classes assign “homework problems.” I’m not sure what is less fun: th
 Read the following:
 
 - _Challenges for Game Designers_, Chapter 1 (Basics). This is just a short introduction to the text.
-- _I Have No Words and I Must Design_, by Greg Costikyan. To me (and I’m sure others will disagree), this essay is the turning point when game design started to become its own field of study. Since it all started here, for me at least, I think it only fitting to introduce it at the start of this course. (There is a newer version here[PDF] if you are interested, but I prefer the original for its historical importance.)
-- [_Understanding Games 1_](http://www.kongregate.com/games/pixelate/understanding-games-episode-1), [_Understanding Games 2_](http://www.kongregate.com/games/pixelate/understanding-games-episode-2), [_Understanding Games 3_](http://www.kongregate.com/games/pixelate/understanding-games-episode-3), [_Understanding Games 4_](http://www.kongregate.com/games/pixelate/understanding-games-episode-4). These are not readings, but playings.[^flashpoint] They are a series of short Flash games that attempt to explain some basic concepts of games in the form of a game. The name is a reference to _Understanding Comics_, a comic book that explains about comic books. Each one takes about five minutes.
+
+- [_I Have No Words and I Must Design_](https://memento-mori.com/costik), by Greg Costikyan. To me (and I’m sure others will disagree), this essay is the turning point when game design started to become its own field of study. Since it all started here, for me at least, I think it only fitting to introduce it at the start of this course. (There is a [newer version](https://dl.digra.org/index.php/dl/article/view/29) if you are interested, but I prefer the original for its historical importance.)
+
+- [_Understanding Games 1_](https://www.kongregate.com/games/pixelate/understanding-games-episode-1), [_Understanding Games 2_](https://www.kongregate.com/games/pixelate/understanding-games-episode-2), [_Understanding Games 3_](https://www.kongregate.com/games/pixelate/understanding-games-episode-3), [_Understanding Games 4_](https://www.kongregate.com/games/pixelate/understanding-games-episode-4). These are not readings, but playings.[^flashpoint] They are a series of short Flash games that attempt to explain some basic concepts of games in the form of a game. The name is a reference to _Understanding Comics_, a comic book that explains about comic books. Each one takes about five minutes.
 
 ## Footnotes
 
