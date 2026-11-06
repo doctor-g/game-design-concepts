@@ -27,3 +27,9 @@ All Astro commands are run from the root of the project, from a terminal:
 ## Contributing
 
 Be sure to run the accessibility audit in [audit-accessibility.js]() before pushing your contributions. This script is automatically run as part of `npm run build`.
+
+## License
+
+The text of Game Design Concepts by Ian Schreiber is licensed under [Creative Commons Attribution 3.0 United States License](http://creativecommons.org/licenses/by/3.0/us/).
+
+The software to generate this site is licensed under [GNU GPL 3.0](LICENSE).
